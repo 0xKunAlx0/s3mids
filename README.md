@@ -1,7 +1,5 @@
 # S3MIDS
 
-**S3MIDS** is a lightweight tool designed to detect **AWS S3 bucket misconfigurations** and **potential bucket takeover scenarios**.
-
 S3MIDS is created to detect AWS S3 misconfigurations that many existing tools miss due to region-based bucket access behavior. Some buckets return “NoSuchBucket” when queried from the wrong endpoint but remain accessible. This tool identifies the correct region and tests for public access, upload, delete, and takeover risks.
 
 It helps security researchers and bug bounty hunters identify:
