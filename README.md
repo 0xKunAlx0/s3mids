@@ -1,6 +1,6 @@
-# S3MIDS
+# s3mids
 
-S3MIDS is created to detect AWS S3 misconfigurations that many existing tools miss due to region-based bucket access behavior. Some buckets return “NoSuchBucket” when queried from the wrong endpoint but remain accessible. This tool identifies the correct region and tests for public access, upload, delete, and takeover risks.
+s3mids is created to detect AWS S3 misconfigurations that many existing tools miss due to region-based bucket access behavior. Some buckets return “NoSuchBucket” when queried from the wrong endpoint but remain accessible. This tool identifies the correct region and tests for public access, upload, delete, and takeover risks.
 
 <img width="957" height="240" alt="image" src="https://github.com/user-attachments/assets/f736980c-152e-47fb-8f4d-327ffbfca90a" />
 
