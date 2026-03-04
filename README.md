@@ -1,40 +1,161 @@
 # S3MIDS
 
-**S3MIDS** is a lightweight tool designed to detect common **AWS S3 bucket misconfigurations** and **potential bucket takeover scenarios**.
+**S3MIDS** is a lightweight tool designed to detect **AWS S3 bucket misconfigurations** and **potential bucket takeover scenarios**.
 
-It helps security researchers and bug bounty hunters quickly identify:
-- Publicly accessible buckets
-- Anonymous upload permissions
-- Public read access
-- Misconfigured buckets
-- Potential S3 takeover vulnerabilities
+S3MIDS is created to detect AWS S3 misconfigurations that many existing tools miss due to region-based bucket access behavior. Some buckets return “NoSuchBucket” when queried from the wrong endpoint but remain accessible. This tool identifies the correct region and tests for public access, upload, delete, and takeover risks.
+
+It helps security researchers and bug bounty hunters identify:
+
+* Publicly accessible buckets
+* Anonymous upload permissions
+* Public read access
+* Bucket misconfigurations
+* Possible S3 takeover vulnerabilities
 
 ---
 
 ## Features
 
-- Detects whether an **S3 bucket exists**
-- Automatically identifies the **correct AWS region**
-- Checks for **public bucket listing**
-- Tests **anonymous upload access**
-- Verifies if uploaded objects are **publicly readable**
-- Tests **anonymous delete permissions**
-- Detects **possible S3 bucket takeover**
-- Supports **single and multiple target scanning**
+* Detects whether an **S3 bucket exists**
+* Automatically identifies the **correct AWS region**
+* Checks for **public bucket listing**
+* Tests **anonymous upload access**
+* Verifies if uploaded objects are **publicly readable**
+* Tests **anonymous delete permissions**
+* Detects **possible S3 bucket takeover**
+* Supports **single and multiple target scanning**
 
 ---
 
 ## Installation
 
-
 Clone the repository:
 
-`git clone https://github.com/YOUR_USERNAME/s3mids.git`
+```
+git clone https://github.com/YOUR_USERNAME/s3mids.git
+```
 
-Navigate into the project directory:
+Navigate to the project directory:
 
-`cd s3mids`
+```
+cd s3mids
+```
 
-Install dependencies:
+Install Python dependencies:
 
-`pip install -r requirements.txt`
+```
+pip install -r requirements.txt
+```
+
+---
+
+## Requirements
+
+* Python 3.x
+* AWS CLI
+* Python package:
+
+  * requests
+
+Install AWS CLI if it is not installed:
+
+```
+sudo apt install awscli
+```
+
+or
+
+```
+pip install awscli
+```
+
+---
+
+## Usage
+
+### Scan a Single Bucket
+
+```
+python3 s3mids.py -b bucket-name
+```
+
+Example:
+
+```
+python3 s3mids.py -b example-bucket
+```
+
+---
+
+### Scan Multiple Targets
+
+Provide a file containing bucket names or domains.
+
+```
+python3 s3mids.py -l buckets.txt
+```
+
+---
+
+### Specify a Custom PoC File for Upload Testing
+
+```
+python3 s3mids.py -l buckets.txt -f poc.txt
+```
+
+---
+
+## Example Output
+
+```
+[+] Bucket exists
+[+] Region: ap-south-1
+
+[*] Checking public listing...
+[OK] No public listing access
+
+[*] Testing anonymous upload...
+[CRITICAL] Anonymous upload SUCCESS
+
+[+] Uploaded to:
+http://example-bucket.s3.amazonaws.com/poc-test.txt
+```
+
+---
+
+## Example Bucket List File
+
+```
+example-bucket
+cdn.example.com
+assets.example.org
+```
+
+---
+
+## requirements.txt
+
+```
+requests>=2.31.0
+```
+
+---
+
+## Disclaimer
+
+This tool is intended for **security research and authorized testing only**.
+
+Do **not** use this tool against systems without **proper permission**.
+The author is **not responsible for misuse** of this tool.
+
+---
+
+## Author
+
+Developed by **KunAl**
+
+---
+
+## License
+
+This project is licensed under the **MIT License**.
