@@ -3,7 +3,7 @@
 s3mids is created to detect AWS S3 misconfigurations that many existing tools miss due to region-based bucket access behavior. Some buckets return “NoSuchBucket” when queried from the wrong endpoint but remain accessible. This tool identifies the correct region and tests for public access, upload, delete, and takeover risks.
 
 <img width="957" height="240" alt="image" src="https://github.com/user-attachments/assets/f736980c-152e-47fb-8f4d-327ffbfca90a" />
-
+<img width="739" height="443" alt="image" src="https://github.com/user-attachments/assets/e744611f-5377-4cee-aaad-90e4a1071b53" />
 
 It helps security researchers and bug bounty hunters identify:
 
@@ -131,7 +131,6 @@ example-bucket
 cdn.example.com
 assets.example.org
 ```
-<img width="739" height="443" alt="image" src="https://github.com/user-attachments/assets/e744611f-5377-4cee-aaad-90e4a1071b53" />
 
 ---
 
