@@ -154,7 +154,7 @@ The author is **not responsible for misuse** of this tool.
 
 ## Author
 
-Developed by **KunAl Dhumal**
+Developed by **KunAl Dhumal [Linkedin](https://www.linkedin.com/in/kunal-dhumal-47356721a/)**
 
 ---
 
